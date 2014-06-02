@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+		"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="base" extends="struts-default">
+		<global-results>
+			<result name="message">/WEB-INF/User/message.jsp</result>
+		</global-results>
+	</package>
+
+	<package name="user" namespace="/user" extends="base">
+		<global-results>
+			<result name="login">/WEB-INF/User/login.jsp</result>
+			<result name="list">/WEB-INF/User/list.jsp</result>
+		</global-results>
+		<action name="login" class="com.lish.action.LoginAction" method="index">
+
+
+		</action>
+		<action name="logout" class="com.lish.action.LoginAction" method="logout">
+
+
+		</action>
+		<action name="finish" class="com.lish.action.LoginAction" method="finish">
+			<result type="redirectAction" name="loginok">
+				<param name="actionName">list</param>
+			</result>
+			<result type="redirectAction" name="loginerror">
+				<param name="actionName">login</param>
+				<param name="message">${message}</param>
+			</result>
+
+		</action>
+
+		<action name="list" class="com.lish.action.ListAction" method="list">
+
+		</action>
+
+
+	</package>
+	<package name="test" namespace="/test" extends="base">
+
+		<action name="index" class="com.lish.action.TestAction" method="index">
+
+			<result name="index">/WEB-INF/Test/test.jsp</result>
+		</action>
+
+
+	</package>
+</struts>
