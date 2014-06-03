@@ -14,13 +14,13 @@
 			<column name="content" length="2048"/>
 		</property>
 
-		<property name="time" type="java.lang.String">
+		<property name="time" type="java.util.Date">
 			<column name="time"/>
 		</property>
 
-		<many-to-one name="receiver" column="receiver_id"/>
+		<many-to-one name="receiver" column="receiver_id" lazy="false"/>
 
-		<many-to-one name="sender" column="sender_id"/>
+		<many-to-one name="sender" column="sender_id" lazy="false"/>
 
 
 

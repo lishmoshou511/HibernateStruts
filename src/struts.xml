@@ -5,6 +5,9 @@
 		"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+	<!--打印更详细的错误信息，开发阶段用true-->
+	<constant name="struts.devMode" value="true"/>
+
 
 	<package name="base" extends="struts-default">
 		<global-results>

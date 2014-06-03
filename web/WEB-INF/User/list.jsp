@@ -10,6 +10,14 @@
 <html>
 <head>
 	<title>信息列表</title>
+	<style>
+		table{
+			border-spacing: 0;
+		}
+		tr,td,th{
+			border: 1px solid blue;
+		}
+	</style>
 </head>
 <body>
 <div>
@@ -26,14 +34,20 @@
 			<th>发送时间</th>
 			<th>接收人</th>
 			<th>信息内容</th>
-			<th>发送时间</th>
 		</tr>
+		<s:iterator value="messages" var="message">
+			<tr>
+				<td><s:property value="#message.sender.name"/> </td>
+				<td><s:property value="#message.time"/></td>
+				<td><s:property value="#message.receiver.name"/></td>
+				<td><s:property value="#message.content"/></td>
+			</tr>
+		</s:iterator>
 		<tr>
 			<td>周星驰</td>
 			<td>2011-11-11</td>
 			<td>张三丰</td>
 			<td>我要准备拍太极了</td>
-			<td>2011-11-12</td>
 		</tr>
 
 	</table>
