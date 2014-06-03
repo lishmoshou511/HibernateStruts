@@ -5,6 +5,9 @@
 		"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+	<!--打印更详细的错误信息，开发阶段用true-->
+	<constant name="struts.devMode" value="true"/>
+
 
 	<package name="base" extends="struts-default">
 		<global-results>
@@ -21,7 +24,10 @@
 
 
 		</action>
+		<action name="logout" class="com.lish.action.LoginAction" method="logout">
 
+
+		</action>
 		<action name="finish" class="com.lish.action.LoginAction" method="finish">
 			<result type="redirectAction" name="loginok">
 				<param name="actionName">list</param>

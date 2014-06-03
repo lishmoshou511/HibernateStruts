@@ -20,13 +20,13 @@
 		<tr>
 			<td>用户ID</td>
 			<td>
-				<input type="text" name="userid"/>
+				<input type="text" name="id"/>
 			</td>
 		</tr>
 		<tr>
 			<td>用户密码</td>
 			<td>
-				<input type="password" name="userpwd"/>
+				<input type="password" name="password"/>
 			</td>
 
 		</tr>

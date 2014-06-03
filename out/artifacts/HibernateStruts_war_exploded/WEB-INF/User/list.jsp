@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: lishuang
@@ -9,29 +10,44 @@
 <html>
 <head>
 	<title>信息列表</title>
+	<style>
+		table{
+			border-spacing: 0;
+		}
+		tr,td,th{
+			border: 1px solid blue;
+		}
+	</style>
 </head>
 <body>
 <div>
 	<a href="#">发布信息</a>
-	<a href="#">退出系统</a>
+
+	<a href="<s:url action="logout" namespace="/user"/>">退出系统</a>
 </div>
 
 <div>
-	<h4>留言信息</h4>
+	<h4>欢迎<s:property value="#session.user.name"/>,留言信息</h4>
 	<table style="border: 1px solid blue">
 		<tr>
 			<th>发送人</th>
 			<th>发送时间</th>
 			<th>接收人</th>
 			<th>信息内容</th>
-			<th>发送时间</th>
 		</tr>
+		<s:iterator value="messages" var="message">
+			<tr>
+				<td><s:property value="#message.sender.name"/> </td>
+				<td><s:property value="#message.time"/></td>
+				<td><s:property value="#message.receiver.name"/></td>
+				<td><s:property value="#message.content"/></td>
+			</tr>
+		</s:iterator>
 		<tr>
 			<td>周星驰</td>
 			<td>2011-11-11</td>
 			<td>张三丰</td>
 			<td>我要准备拍太极了</td>
-			<td>2011-11-12</td>
 		</tr>
 
 	</table>
