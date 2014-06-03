@@ -1,7 +1,13 @@
 package com.lish.action;
 
+import com.lish.domain.User;
+import com.lish.service.Imp.UserServiceImp;
+import com.lish.service.inter.UserInterface;
+import com.opensymphony.xwork2.ActionContext;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.Map;
 
 /**
  * Created by lishuang on 2014/6/2.
@@ -11,22 +17,42 @@ public class LoginAction {
 	private String message;
 
 	@Getter @Setter
-	private String userid;
+	private String id;
 	@Getter @Setter
-	private String userpwd;
+	private String password;
 	public String index(){
-		System.out.println("Message:"+this.message);
+		//Test.createTable();
+
+
+
 
 		return "login";
 	}
 
 	public String finish(){
 
-		if("123".equals(userid)){
-			this.message="登录成功!";
+		//使用Service到数据库的验证
+		UserInterface userInterface =new UserServiceImp();
+
+
+		//构建一个User对象
+		User user=new User();
+		user.setId(Integer.parseInt(this.id));
+		user.setPassword(this.password);
+
+		user= userInterface.checkUser(user);
+
+
+		if(user!=null){
+			this.message="Login successfully!";
+
+			ActionContext context=ActionContext.getContext();
+			Map session=context.getSession();
+			session.put("user",user);
+
 			return "loginok";
 		}else{
-			this.message="用户名或者密码错误";
+			this.message="userid or password error!";
 			return "loginerror";
 		}
 	}

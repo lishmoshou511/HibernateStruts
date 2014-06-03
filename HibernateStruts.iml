@@ -23,7 +23,7 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="hibernate.cfg.xml" />
+          <unit-entry name="hibernate.cfg.xml" value="a33ec8c3-9f7c-4076-8339-551096ecbebc" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate.cfg.xml" />
@@ -40,6 +40,7 @@
     <orderEntry type="library" name="Struts 2-2.3.16.3" level="project" />
     <orderEntry type="library" name="Hibernate 4.2.2-4.2.2" level="project" />
     <orderEntry type="library" name="org.projectlombok:lombok:1.14.0" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.30-bin" level="project" />
   </component>
 </module>
 

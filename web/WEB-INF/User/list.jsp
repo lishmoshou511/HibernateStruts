@@ -19,7 +19,7 @@
 </div>
 
 <div>
-	<h4>留言信息</h4>
+	<h4>欢迎<s:property value="#session.user.name"/>,留言信息</h4>
 	<table style="border: 1px solid blue">
 		<tr>
 			<th>发送人</th>
